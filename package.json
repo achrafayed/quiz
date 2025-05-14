@@ -6,13 +6,16 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "server": "json-server --watch data/questions.json --port 9000"
   },
   "dependencies": {
     "expo": "~53.0.7",
     "expo-status-bar": "~2.2.3",
+    "json-server": "^1.0.0-beta.3",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-native": "0.79.2",
+    "expo-linear-gradient": "~14.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

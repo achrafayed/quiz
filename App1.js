@@ -1,6 +1,12 @@
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { StyleSheet, View, SafeAreaView, Platform } from "react-native";
+// App.js
+import React, { useEffect, useState } from "react"; // Import useState instead of useReducer
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+} from "react-native";
 
 import Header from "./components/Header";
 import Loader from "./components/Loader";
@@ -8,31 +14,58 @@ import Error from "./components/Error";
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
+// Importez les autres composants si nécessaire
+
+// Données JSON (inchangées)
+const questionsData = [
+  // ... (collez TOUTES vos questions JSON ici) ...
+  {
+    question: "When will an effect run if it doesn't have a dependency array?",
+    options: [
+      "Only when the component mounts",
+      "Only when the component unmounts",
+      "The first time the component re-renders",
+      "Each time the component is re-rendered",
+    ],
+    correctOption: 3,
+    points: 20,
+  },
+];
+
+// SECS_PER_QUESTION sera utile en Séance 2
+// const SECS_PER_QUESTION = 30;
 
 export default function App() {
-  useEffect(() => {
-    fetch("http://10.0.2.2:9000/questions")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setQuestions(data);
-        setStatus("ready");
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setStatus("error");
-      });
-  }, []);
-
+  // --- State Management avec useState ---
   const [questions, setQuestions] = useState([]);
   const [status, setStatus] = useState("loading"); // 'loading', 'error', 'ready', 'active', 'finished'
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState(null); // Index de la réponse choisie
   const [points, setPoints] = useState(0);
+  // const [highscore, setHighscore] = useState(0); // Futur
+  // const [secondsRemaining, setSecondsRemaining] = useState(null); // Séance 2
 
   // --- Variables dérivées ---
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce((sum, q) => sum + q.points, 0);
+
+  // --- Effet pour charger les données ---
+  useEffect(function () {
+    const timer = setTimeout(() => {
+      try {
+        if (questionsData && questionsData.length > 0) {
+          setQuestions(questionsData); // Mise à jour de l'état questions
+          setStatus("ready"); // Mise à jour de l'état status
+        } else {
+          throw new Error("No questions data provided");
+        }
+      } catch (err) {
+        setStatus("error"); // Mise à jour de l'état status en cas d'erreur
+        console.error("Data loading error:", err);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []); // Le tableau de dépendances vide assure que l'effet ne s'exécute qu'une fois
 
   // --- Fonctions de gestion d'état ---
   function handleStartQuiz() {
@@ -62,6 +95,7 @@ export default function App() {
     setStatus("finished");
   }
 
+  // --- Rendu ---
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -102,10 +136,12 @@ export default function App() {
   );
 }
 
+// --- Styles (inchangés par rapport à la version useReducer) ---
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#2D2D2D",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   mainContent: {
     flex: 1,

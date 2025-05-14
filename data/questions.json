@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "question": "Quel est le framework JavaScript le plus populaire ?",
+      "options": ["Angular", "React", "Svelte", "Vue"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Quelle entreprise a inventé React ?",
+      "options": ["Google", "Apple", "Netflix", "Facebook"],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "Quel est l'élément de base des applications React ?",
+      "options": ["Composants", "Blocs", "Éléments", "Effets"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Comment s'appelle la syntaxe utilisée pour décrire l'UI dans les composants React ?",
+      "options": ["FBJ", "Babel", "JSX", "ES2015"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Comment les données circulent-elles naturellement dans les applications React ?",
+      "options": [
+        "Des parents vers les enfants",
+        "Des enfants vers les parents",
+        "Dans les deux sens",
+        "Le développeur décide"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Comment passer des données à un composant enfant ?",
+      "options": ["État", "Props", "PropTypes", "Paramètres"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Quand utiliser un état dérivé ?",
+      "options": [
+        "Quand l'état ne doit pas déclencher un nouveau rendu",
+        "Quand l'état peut être synchronisé avec un effet",
+        "Quand l'état doit être accessible à tous les composants",
+        "Quand l'état peut être calculé à partir d'une autre variable d'état"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "Qu'est-ce qui déclenche un nouveau rendu de l'UI dans React ?",
+      "options": [
+        "Exécution d'un effet",
+        "Passage de props",
+        "Mise à jour de l'état",
+        "Ajout d'écouteurs d'événements aux éléments DOM"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "Quand touche-t-on directement le DOM dans React ?",
+      "options": [
+        "Quand on doit écouter un événement",
+        "Quand on doit changer l'UI",
+        "Quand on doit ajouter des styles",
+        "Presque jamais"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "Dans quelle situation utilise-t-on une fonction de rappel pour mettre à jour l'état ?",
+      "options": [
+        "Quand la mise à jour est lente",
+        "Quand l'état est très volumineux",
+        "Pour des mises à jour plus rapides",
+        "Quand le nouvel état dépend de l'état précédent"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "Si on passe une fonction à useState, quand sera-t-elle appelée ?",
+      "options": [
+        "À chaque rendu",
+        "À chaque mise à jour",
+        "Seulement au rendu initial",
+        "À la première mise à jour"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Quel hook utiliser pour une requête API au rendu initial ?",
+      "options": ["useState", "useEffect", "useRef", "useReducer"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Quelles variables doivent être dans le tableau de dépendances de useEffect ?",
+      "options": [
+        "Aucune en général",
+        "Toutes les variables d'état",
+        "Tous les états et props référencés dans l'effet",
+        "Variables nécessaires au nettoyage"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Un effet s'exécute toujours lors du rendu initial.",
+      "options": [
+        "Vrai",
+        "Ça dépend du tableau de dépendances",
+        "Faux",
+        "Ça dépend du code dans l'effet"
+      ],
+      "correctOption": 0,
+      "points": 30
+    },
+    {
+      "question": "Quand un effet s'exécute-t-il s'il n'a pas de tableau de dépendances ?",
+      "options": [
+        "Seulement au montage initial",
+        "Seulement au démontage",
+        "Lors du premier re-rendu",
+        "À chaque re-rendu"
+      ],
+      "correctOption": 3,
+      "points": 20
+    }
+  ]
+}
